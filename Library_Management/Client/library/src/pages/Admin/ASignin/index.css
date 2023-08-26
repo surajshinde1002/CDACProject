@@ -1,0 +1,9 @@
+#Abtn {
+    display: flex;
+  }
+  
+  #adminLabel {
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(75, 224, 224);
+  }

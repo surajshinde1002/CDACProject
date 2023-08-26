@@ -1,0 +1,34 @@
+h1.title {
+    text-align: center;
+  }
+
+label {
+  display: flex;
+}
+
+#signinbtn1 {
+  display: flex;
+}
+
+div.signin {
+  margin-top: 21px;
+  padding: 50px;
+}
+
+#lab1{
+  font-weight: bolder;
+  font-size: x-large; 
+color: rgb(75, 224, 224);
+}
+
+#Stitle {
+  color: rgb(64, 5, 61);
+  margin-left: 66px;
+
+}
+
+.btn-blue {
+  background-color: #1f3fdd;
+  color: white;
+  font-weight: bold;
+}

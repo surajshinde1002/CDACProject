@@ -1,0 +1,18 @@
+package com.Dac.BackEnd.Dtos;
+
+import java.util.Date;
+
+public class IssuedDTO {
+	
+	private int stud_id;
+	private int book_id;
+	private String book_name;
+	private String book_category;
+	private String author;
+	private String publisher ;
+	private String book_pdf;
+	private Date start_date;
+	private Date end_date;
+	private String book_image;
+
+}
