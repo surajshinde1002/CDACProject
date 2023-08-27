@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {  useNavigate } from "react-router";
 import { useState, useEffect } from "react";
-import { URL } from "../../../config";
+import { URL, SPRING_URL } from "../../../config";
 import axios from "axios";
 import { toast } from "react-toastify";
 import './AllBooks.css'
@@ -15,7 +15,10 @@ const AllBooks = () => {
 
   const [books, setBooks] = useState([]);
 
-  const searchBooks = () => {
+  const [server, setServer] = useState("")
+
+  const searchBooksSpring = () => {
+    setServer = "spring"
     const url = `${URL}/student/viewBooks`;
     axios.get(url).then((response) => {
       const result = response.data;
@@ -27,8 +30,20 @@ const AllBooks = () => {
     });
   };
 
+  const searchBooksNode = () => {
+    const url = `${URL}/student/viewBooks`;
+    axios.get(url).then((response) => {
+      const result = response.data;
+      if (result["status"] === "success") {
+        setBooks(result["data"]);
+      } else {
+        toast.error(result["error"]);
+      }
+    });
+  };
+
   useEffect(() => {
-    searchBooks();
+    searchBooksNode();
     console.log("getting called");
   }, []);
   return (

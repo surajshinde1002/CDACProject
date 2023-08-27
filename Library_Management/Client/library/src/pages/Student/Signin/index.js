@@ -33,19 +33,19 @@ const SSignin = () => {
         // get the server result
         const result = response.data;
         console.log(result)
-        console.log(result);
-        if (result.success === true) {
+
+        if (result["status"] == "success") {
           toast.success("Welcome to the application",{ autoClose:1500});
           navigate('/SHome')
 
           // get the data sent by server
-          // const { id, firstName, lastName } = result["data"];
+          const { id, firstName, lastName } = result["data"];
 
           // persist the logged in user's information for future use
-          // sessionStorage["stud_id"] = id;
-          // sessionStorage["firstName"] = firstName;
-          // sessionStorage["lastName"] = lastName;
-          // sessionStorage["loginStatus"] = 1;
+          sessionStorage["stud_id"] = id;
+          sessionStorage["firstName"] = firstName;
+          sessionStorage["lastName"] = lastName;
+          sessionStorage["loginStatus"] = 1;
 
           // navigate to home component
           // navigate("/home");
