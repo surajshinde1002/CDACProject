@@ -1,0 +1,42 @@
+.profile {
+    margin-top: 200px;
+}
+
+#pro {
+    margin: 50px;
+    margin-left: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+    font-style: inherit;
+}
+
+.attribute {
+    font-weight: normal;
+    margin-left: 100px;
+    justify-content: left;
+    justify-items: left;
+}
+
+th, td {
+    padding: 19px;
+    text-align: left;
+  }
+
+td {
+    font-style: italic;
+
+}
+
+#proId {
+    font-weight: bolder;
+}
+
+
+
+.table-borderless {
+    margin-left: 497px;
+    margin-top: 68px;
+}
+

@@ -1,0 +1,144 @@
+package com.Dac.BackEnd.controller;
+
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.bind.annotation.*;
+
+import com.Dac.BackEnd.Dtos.BookDTO;
+import com.Dac.BackEnd.Dtos.Credentials;
+import com.Dac.BackEnd.Dtos.FeedbackDTO;
+import com.Dac.BackEnd.Dtos.RequestDTO;
+import com.Dac.BackEnd.Dtos.Response;
+import com.Dac.BackEnd.Dtos.StudentDTO;
+import com.Dac.BackEnd.repository.StudentRepository;
+import com.Dac.BackEnd.services.StudentServiceImpl;
+
+import jakarta.servlet.http.HttpServletResponse;
+
+@RestController
+@RequestMapping("/student")
+@CrossOrigin("*")
+public class StudentsController {
+	
+	@Autowired
+	private StudentServiceImpl studentService ; 
+	
+	
+	//SignIn
+	@PostMapping("/signin")
+	public ResponseEntity<?> signIn(@RequestBody Credentials cred) {
+		ResponseEntity<?> response = studentService.findStudentByEmailAndPassword(cred);
+		return response;
+	}
+	
+	//view Students Profile
+	@GetMapping("/profile/{stud_id}")
+	public ResponseEntity<?> profile(@PathVariable("stud_id") int stud_id) {
+		System.out.println("student id is :"+stud_id);
+		StudentDTO studentdto = studentService.findStudentById(stud_id);
+		
+		if(studentdto == null) {
+			return Response.error("user not found");
+		}
+		else {
+			return Response.success(studentdto);
+		}
+	}
+	
+	
+	//Updating Student profile
+	@PutMapping("/update/{stud_id}")
+	public ResponseEntity<?> updateProfile(@PathVariable("stud_id") int stud_id, @RequestBody StudentDTO studentdto) {
+		StudentDTO studentdtos = studentService.updateProfile(stud_id, studentdto);
+		
+		if(studentdtos == null) {
+			return Response.error("user not found");
+		}
+		else {
+			return Response.success(studentdtos);
+		}
+		
+		
+	}
+	
+	//Inserting feedback
+	@PostMapping("/feedback/{stud_id}")
+	public ResponseEntity<?> feedback(@PathVariable ("stud_id") int stud_id,@RequestBody FeedbackDTO feedbackdto) {
+		FeedbackDTO feedbackdtos = studentService.feedback(stud_id,feedbackdto);
+		if(feedbackdtos == null) {
+			return Response.error("feedback is not inserted");
+		}else {
+			return Response.success(feedbackdtos);
+		}
+	}
+	
+	@PostMapping("/request/{stud_id}")
+	public ResponseEntity<?> request(@PathVariable ("stud_id") int stud_id,@RequestBody RequestDTO requestdto) {
+		ResponseEntity<?> response = studentService.requestForBook(stud_id,requestdto);
+		
+		return response;
+	}
+	
+	
+	@GetMapping("/viewBooks")
+	public ResponseEntity<?> viewAllBooks() {
+		List<Object> bookdtos = studentService.viewingBooks();
+		if(bookdtos == null) {
+			return Response.error("request is not inserted");
+		}else {
+			return Response.success(bookdtos);
+		}
+	}
+	
+	
+	
+	@GetMapping("/viewIssuedBooks/{stud_id}")
+	public ResponseEntity<?> viewIssuedBooks(@PathVariable ("stud_id") int stud_id) {
+		List<Object> issuedBookList = studentService.viewIssuedBooks(stud_id);
+		if(issuedBookList == null) {
+			return Response.error("No books are issued");
+		}else {
+			return Response.success(issuedBookList);
+		}
+	}
+	
+	
+	@DeleteMapping("/returnBook/{stud_id}/{book_id}")
+	public ResponseEntity<?> returnIssuedBook(@PathVariable ("stud_id") int stud_id,@PathVariable ("book_id") int book_id) {
+		 Boolean flag= studentService.returnBook(stud_id,book_id);
+		if(flag == null || flag == false) {
+			return Response.error("No book present to return or wrong book id");
+		}else {
+			return Response.success(flag);
+		}
+	}
+	
+		
+	@GetMapping(value = "/image/{book_image}", produces = MediaType.IMAGE_JPEG_VALUE)
+	public void viewBookImage(@PathVariable("book_image") String book_image, HttpServletResponse response) throws IOException {
+		
+		InputStream resource = studentService.getImage(book_image);
+		
+		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+		StreamUtils.copy(resource, response.getOutputStream());
+	}
+	
+	@GetMapping(value = "/pdf/{pdf_name}", produces = MediaType.APPLICATION_PDF_VALUE)
+	public void viewPdf(@PathVariable("pdf_name") String pdf_name, HttpServletResponse response) throws IOException {
+		
+		InputStream resource = studentService.getPdf(pdf_name);
+		
+		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+		StreamUtils.copy(resource, response.getOutputStream());
+	}
+	
+}
+
+

@@ -1,0 +1,36 @@
+package com.Dac.BackEnd.daos;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.Dac.BackEnd.model.*;
+
+public interface IssuedBooksDao extends JpaRepository<IssuedBooks, Integer> {
+
+//	select * from issued_book where book_id = ${book_id} and stud_id = ${stud_id}`;
+	
+	@Query(value = "select * from issued_book where book_id= ?1 and stud_id=?2 ",nativeQuery = true)
+	IssuedBooks getIssuedBook(int bookId,int studentId);
+	
+	//
+	@Query(value = "select ib.stud_id as stud_id,ib.book_id as book_id,b.book_name as book_name,b.book_category as book_category,b.author as author, b.publisher as publisher,b.book_pdf as book_pdf,b.book_image as book_image,ib.start_date as start_date,ib.end_date as end_date from issued_book ib inner join book b on ib.book_id = b.book_id where ib.stud_id = ?1",nativeQuery = true)
+	List<Object> viewIssuedBooks(int studentId);
+	
+	
+	@Modifying
+	@Query(value = "delete from issued_book where stud_id = ?1 and book_id = ?2",nativeQuery = true)
+	int returnBook(int studentId,int bookId);
+	
+	
+	@Modifying
+	@Query(value = "delete from issued_book where stud_id = ?1 and book_id = ?2",nativeQuery = true)
+	int retrieveBook(int studentId,int bookId);
+	
+	@Modifying
+	@Query(value = "insert into issued_book(stud_id,book_id,book_name,book_category,start_date,end_date) values(?1,?2,?3,?4,?5,?6)",nativeQuery = true)
+	int addIssueBookIntable(int studentId,int bookId,String bookName,String bookCategory,Date start_date,Date end_date);
+}

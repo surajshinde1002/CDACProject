@@ -1,0 +1,25 @@
+.list-group{
+    margin-bottom: 50px;
+}
+
+.desc {
+    font-weight: bold;
+}
+
+.title {
+    margin-bottom: 70px;
+}
+
+.imgDiv {
+    margin-right: 120px;
+    margin-bottom: 44px;
+
+}
+
+.bookImg {
+    max-width: 259px;
+    max-height: 194px;
+}
+
+
+
