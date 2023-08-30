@@ -29,7 +29,7 @@ const SSignin = () => {
       const urlSpring = `${SPRING_URL}/student/signin`;
 
       // make api call using axios
-      await axios.post(urlNode, body).then((response) => {
+      await axios.post(urlSpring, body).then((response) => {
         // console.log("hello")
         // get the server result
         const result = response.data;

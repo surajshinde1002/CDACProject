@@ -12,7 +12,7 @@ export default function Feedback() {
   const searchFeedbacks = () => {
     const urlNode = `${URL}/admin/feedback`;
     const urlSpring = `${SPRING_URL}/admin/feedback`;
-    axios.get(urlNode).then((response) => {
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       if (result["status"] === "success") {
         setfeedbacks(result["data"][0]);

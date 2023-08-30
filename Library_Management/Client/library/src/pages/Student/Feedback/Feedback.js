@@ -24,7 +24,7 @@ const Feedback = () => {
       const urlNode = `${URL}/student/feedback/${stud_id}`
       const urlSpring = `${SPRING_URL}/student/feedback/${stud_id}`
 
-      axios.post(urlNode,body).then((response) => {
+      axios.post(urlSpring,body).then((response) => {
         const result = response.data
         console.log(result)
         if (result['status'] === 'success') {

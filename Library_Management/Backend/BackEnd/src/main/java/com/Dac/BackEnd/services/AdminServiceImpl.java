@@ -17,6 +17,9 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -46,6 +49,9 @@ import com.Dac.BackEnd.model.Student;
 @Transactional
 @Service
 public class AdminServiceImpl  implements FileService{
+	
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
 	private AdminDao adminDao;
@@ -93,6 +99,9 @@ public class AdminServiceImpl  implements FileService{
 	public StudentDTO saveStudent(StudentDTO studentDto) {
 		
 		Student student = converter.toStudentEntity(studentDto);
+		//Password encoding is here
+		
+		//student.setPassword(this.bCryptPasswordEncoder.encode(student.getPassword()));
 		student = studentDao.save(student);
 		studentDto = converter.toStudentDTO(student);
 		studentDto.setPassword("************");

@@ -24,7 +24,7 @@ const SHome = () => {
           const urlSpring = `${SPRING_URL}/student/request/${stud_id}`
 
           try {
-            await axios.post(urlNode,body).then((response) => {
+            await axios.post(urlSpring,body).then((response) => {
               console.log(response.code);
               const result = response.data
               console.log(`response is ${response}`);

@@ -32,7 +32,7 @@ const AdminSignin = () => {
         const urlSpring = `${SPRING_URL}/admin/asignin`;
   
         // make api call using axios
-        axios.post(urlNode, body).then((response) => {
+        axios.post(urlSpring, body).then((response) => {
           // get the server result
           const result = response.data;
           console.log("result is "+result['status']);

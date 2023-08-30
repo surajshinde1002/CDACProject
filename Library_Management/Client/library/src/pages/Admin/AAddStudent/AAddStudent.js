@@ -40,7 +40,7 @@ function AddStudent() {
       const urlNode = `${URL}/admin/addStudent`
       const urlSpring = `${SPRING_URL}/admin/addStudent`
 
-      axios.post(urlNode, body).then((response) => {
+      axios.post(urlSpring, body).then((response) => {
 
         const result = response.data
         console.log(result)

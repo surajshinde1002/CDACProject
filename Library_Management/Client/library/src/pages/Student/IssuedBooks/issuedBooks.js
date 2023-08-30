@@ -21,13 +21,13 @@ export default function IssuedBook() {
     const urlNode = `${URL}/student/viewIssuedBooks/${stud_id}`;
     
 
-    axios.get(urlNode).then((response) => {
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       console.log("result is :"+result);
       console.log(result);
       if (result["status"] === "success") {
-        setIssuedBooks(result["data"][0]);
-        console.log("result data is"+result["data"][0]);
+        setIssuedBooks(result["data"]);
+        console.log("result dat a is"+result["data"]);
       } else {
         toast.error(result["error"]);
       }
@@ -42,12 +42,12 @@ export default function IssuedBook() {
     
     const urlNode = `${URL}/student/returnBook/${stud_id}/${book_id}`;
     const urlSpring = `${SPRING_URL}/student/returnBook/${stud_id}/${book_id}`;
-    console.log("url is "+urlNode);
+    
 
     console.log("the stud_id:"+stud_id);
     console.log("the book_id:"+book_id);
 
-    axios.delete(urlNode).then((response) => {
+    axios.delete(urlSpring).then((response) => {
       const result = response.data;
       if (result["status"] == "success") {
         toast.success("book successfully returned!!!");

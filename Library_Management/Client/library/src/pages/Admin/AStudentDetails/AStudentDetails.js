@@ -13,7 +13,7 @@ export default function StudentDetails() {
     const urlNode = `${URL}/admin/allStudents`;
     const urlSpring = `${SPRING_URL}/admin/allStudents`;
     
-    axios.get(urlNode).then((response) => {
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       if (result["status"] === "success") {
         setStudents(result["data"][0]);
@@ -31,7 +31,7 @@ export default function StudentDetails() {
     const urlNode = `${URL}/admin/deleteStudent/${stud_id}`
     const urlSpring = `${SPRING_URL}/admin/deleteStudent/${stud_id}`
   
-    axios.delete(urlNode).then((response) => {
+    axios.delete(urlSpring).then((response) => {
       const result = response.data
       console.log(result)
         if (result['status'] == 'success') {
@@ -65,13 +65,13 @@ export default function StudentDetails() {
         <tbody>
           {students.map((student) => (
             <tr>
-              <th scope="row">{student.stud_id}</th>
-              <td>{student.first_name}</td>
-              <td>{student.last_name}</td>
+              <th scope="row">{student.id}</th>
+              <td>{student.firstName}</td>
+              <td>{student.lastName}</td>
               <td>{student.email}</td>
               <td>{student.mobile}</td>
               <td>{student.password}</td>
-              <td><button class="btn btn-outline-danger mr-2 btn-sm" onClick={() => deleteStudent(student.stud_id)}>DELETE</button></td>
+              <td><button class="btn btn-outline-danger mr-2 btn-sm" onClick={() => deleteStudent(student.id)}>DELETE</button></td>
             </tr>
           ))}
         </tbody>

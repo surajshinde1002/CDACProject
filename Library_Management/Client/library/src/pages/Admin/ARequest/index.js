@@ -19,8 +19,8 @@ export default function ARequest() {
   const searchRequests = () => {
     const urlNode = `${URL}/admin/allRequests`;
     const urlSpring = `${SPRING_URL}/admin/allRequests`;
-    console.log("url is "+urlNode);
-      axios.get(urlNode).then((response) => {
+    
+      axios.get(urlSpring).then((response) => {
       const result = response.data;
       if (result["status"] === "success") {
         setRequests(result['data'][0]);

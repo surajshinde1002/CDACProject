@@ -20,7 +20,7 @@ const AllBooks = () => {
     const urlSpring = `${SPRING_URL}/student/viewBooks`;
     const urlNode = `${URL}/student/viewBooks`;
 
-    axios.get(urlNode).then((response) => {
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       if (result["status"] === "success") {
         setBooks(result["data"][0]);
@@ -74,7 +74,7 @@ const AllBooks = () => {
                 <span class="badge bg-primary rounded-pill">{book.author}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                Book Publisher:
+                Book Publisher:  
                 <span class="badge bg-primary rounded-pill">
                   {book.publisher}
                 </span>

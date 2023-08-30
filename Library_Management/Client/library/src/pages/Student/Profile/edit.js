@@ -43,7 +43,7 @@ const UpdateInfo = () => {
       const urlNode = `${URL}/student/update/${stud_id}`;
       const urlSpring = `${SPRING_URL}/student/update/${stud_id}`;
 
-      axios.put(urlNode, body).then((response) => {
+      axios.put(urlSpring, body).then((response) => {
         const result = response.data;
         console.log(result);
         if (result["status"] === "success") {

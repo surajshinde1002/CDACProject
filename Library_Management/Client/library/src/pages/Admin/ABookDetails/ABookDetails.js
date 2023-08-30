@@ -12,8 +12,9 @@ export default function BookDetails() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchBooks = () => {
-    const url = `${URL}/admin/viewBooks`;
-    axios.get(url).then((response) => {
+    const urlNode = `${URL}/admin/viewBooks`;
+    const urlSpring = `${SPRING_URL}/admin/viewBooks`;
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       console.log(result);
       if (result["status"] === "success") {
@@ -30,7 +31,7 @@ export default function BookDetails() {
     const urlSpring = `${SPRING_URL}/admin/deleteBook/${book_id}`;
      
 
-    axios.delete(urlNode).then((response) => {
+    axios.delete(urlSpring).then((response) => {
       const result = response.data;
 
       if (result["status"] == "success") {

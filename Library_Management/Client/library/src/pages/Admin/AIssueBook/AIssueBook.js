@@ -58,8 +58,8 @@ function AIssueBook() {
       const urlNodeAccept = `${URL}/admin/acceptRequest/${requestId}`
       const urlSpringAccept = `${SPRING_URL}/admin/acceptRequest/${requestId}`
 
-      const requestOne = axios.post(urlNodeIssue,body);
-      const requestTwo = axios.delete(urlNodeAccept);
+      const requestOne = axios.post(urlSpringIssue,body);
+      const requestTwo = axios.delete(urlSpringAccept);
 
       axios.all([requestOne, requestTwo])
       .then(

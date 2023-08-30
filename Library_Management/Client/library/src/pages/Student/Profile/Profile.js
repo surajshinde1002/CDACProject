@@ -18,7 +18,7 @@ const Profile = () => {
     const urlNode = `${URL}/student/profile/${stud_id}`;
     const urlSpring = `${SPRING_URL}/student/profile/${stud_id}`;
 
-    axios.get(urlNode).then((response) => {
+    axios.get(urlSpring).then((response) => {
       const result = response.data;
       console.log("The result is:"+result);
       if (result["status"] === "success") {
