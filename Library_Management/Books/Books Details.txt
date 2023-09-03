@@ -1,0 +1,154 @@
+Book ID:
+14
+Book Name:
+The Adventure of Tom Sawyer
+Book Category:
+Story Book
+Book Author:
+Mark Twain
+Book Publisher:
+Puffin Books 1950
+Book Price:
+3000
+
+Description:
+The life of tom sawyer in a single book.
+
+
+Book ID:
+15
+Book Name:
+The Wizard of OZ
+Book Category:
+Story Book
+Book Author:
+L. Frank Baum
+Book Publisher:
+George M. Hill Company
+Book Price:
+500
+A fairy tail with monsters and a golden road.
+
+
+Book ID:
+16
+Book Name:
+GULLIVER’S TRAVELS
+Book Category:
+Story Book
+Book Author:
+Jonathan Swift
+Book Publisher:
+Jonathan Swift
+Book Price:
+800
+“Gulliver’s Travels was published in 1726 and is probably the most famous work by Jonathan Swift. It was an instant hit—selling out within a week—and has never been out of print, as well as having been adapted many times.”
+
+
+Book ID:
+17
+Book Name:
+THE MURDER ON THE LINKS
+Book Category:
+Story Book
+Book Author:
+Agatha Christie
+Book Publisher:
+Agatha Christie
+Book Price:
+500
+“The Murder on the Links is Agatha Christie’s second Poirot novel, featuring the brilliant Belgian detective and his sidekick, Captain Hastings.”
+
+Book ID:
+18
+Book Name:
+FABLES
+Book Category:
+Story Book
+Book Author:
+George Fyler Townsend
+Book Publisher:
+George Fyler Townsend
+Book Price:
+500
+“Aesop lived in Greece in the 6th century BCE, far enough in the past that it’s become impossible to ascribe all these fables to him.
+
+
+Book ID:
+19
+Book Name:
+AWS
+Book Category:
+Computers and Technology
+Book Author:
+IPSpecialist
+Book Publisher:
+Amazon web Services
+Book Price:
+500
+Planning and creating a specific goal is where IPSpecialist helps. We can create a career track that suits your visions as well as develop the competencies you need to become a professional Network Engineer.
+
+Book ID:
+20
+Book Name:
+Deep Learning
+Book Category:
+Computers and Technology
+Book Author:
+Ian Goodfellow, Yoshua Bengio, Aaron Courville
+Book Publisher:
+MIT Press
+Book Price:
+500
+Inventors have long dreamed of creating machines that think. This desire dates back to at least the time of ancient Greece.
+
+Book ID:
+21
+Book Name:
+HTML & CSS Made Easy
+Book Category:
+Computer and Technology
+Book Author:
+Dr. Liew Voon Kiong
+Book Publisher:
+Dr. Liew Voon Kiong
+Book Price:
+500
+HTML stands for Hypertext Markup Language that is used to design web pages and build Websites. It has the ability to bring together text, pictures, sounds, video and links all in one place!
+
+
+Book ID:
+22
+Book Name:
+C Programming Language
+Book Category:
+Computers and Technology
+Book Author:
+Brian W. Kernighan , Dennis M. Ritchie
+Book Publisher:
+Pearson
+Book Price:
+500
+The computing world has undergone a revolution since the publication of The C Programming Language in 1978. Big computers are much bigger, and personal computers have capabilities that rival the mainframes of a decade ago.
+
+
+Book ID:
+23
+Book Name:
+The Web Application Hacker’s Handbook
+Book Category:
+Computers and Technology
+Book Author:
+Dafydd Stuttard & Marcus Pinto
+Book Publisher:
+Wiley Publishing, Inc.
+Book Price:
+500
+This book is a practical guide to discovering and exploiting security flaws in web applications. By “web application” we mean an application that is accessed by using a web browser to communicate with a web server.
+
+
+
+
+
+
+
