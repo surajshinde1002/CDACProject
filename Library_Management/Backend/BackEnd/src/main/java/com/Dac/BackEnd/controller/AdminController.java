@@ -58,16 +58,22 @@ public class AdminController {
 			@RequestParam("book_price") int book_price,
 			@RequestParam("description") String description) throws IOException {
 		try {
-			BookDTO requestdto = new BookDTO(book_price, book_name, book_category, author, publisher, book_price, publisher, book_category, description);
-			BookDTO bookdtos = adminService.addBook(image,pdf,requestdto);
-			if(bookdtos == null) {
+			try {
+				BookDTO requestdto = new BookDTO(book_price, book_name, book_category, author, publisher, book_price, publisher, book_category, description);
+				BookDTO bookdtos = adminService.addBook(image,pdf,requestdto);
+				if(bookdtos == null) {
+					return Response.error("book is not inserted");
+				}else {
+					return Response.success(bookdtos);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
 				return Response.error("book is not inserted");
-			}else {
-				return Response.success(bookdtos);
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return Response.error("book is not inserted");
+			return Response.error("The description should contain 200 letters atmost.");
 		}
 	}
 	
@@ -147,7 +153,7 @@ public class AdminController {
 	public ResponseEntity<?> viewAllIssuedBooks() {
 		List<IssuedDTO> issuedBooksdtos = adminService.viewAllIssuedBooks(0);
 		if(issuedBooksdtos == null) {
-			return Response.error("request is not inserted");
+			return Response.error("There are no books issued!!");
 		}else {
 			return Response.success(issuedBooksdtos);
 		}
@@ -196,7 +202,7 @@ public class AdminController {
 	@DeleteMapping("/retrieve/{stud_id}/{book_id}")
 	public ResponseEntity<?> retrieveBook(@PathVariable("stud_id") int stud_id,@PathVariable("book_id") int book_id) {
 		Boolean flag = adminService.retrieveBook(stud_id, book_id);
-		
+		System.out.println("the flag is :"+flag);
 		if(!flag) {
 			return Response.error("Book not retrieved!!");
 		}

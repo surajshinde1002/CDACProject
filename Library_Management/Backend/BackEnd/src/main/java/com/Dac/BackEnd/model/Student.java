@@ -22,20 +22,21 @@ public class Student {
 	private String mobile;
 	private String password;
 	
+	//Foreign key references from child tables .
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="stud_id", referencedColumnName="stud_id")
 	private List<Request> requests ;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="stud_id", referencedColumnName="stud_id")
-	private List<Feedback> feedbacks ;
+//	@OneToMany(cascade=CascadeType.ALL)
+//	@JoinColumn(name="stud_id", referencedColumnName="stud_id")
+//	private List<Feedback> feedbacks ;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="stud_id", referencedColumnName="stud_id")
 	private List<IssuedBooks> issuedBooks ;
 	
 	
-	public Student() {
+	public Student(){
 		super();
 	}
 
@@ -102,9 +103,5 @@ public class Student {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", mobile=" + mobile + ", password=" + password + "]";
 	}
-
-	
-	
-	
 	
 }

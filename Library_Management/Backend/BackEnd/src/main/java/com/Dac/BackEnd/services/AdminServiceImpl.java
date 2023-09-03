@@ -250,8 +250,8 @@ public class AdminServiceImpl  implements FileService{
 	
 	public Boolean retrieveBook(int stud_id,int book_id) {
 		int flag = issuedBookdao.retrieveBook(stud_id,book_id);
-		int flag2 = requestdao.deleteRequest(stud_id, book_id);
-		if(flag == 1 && flag2 ==1) {
+		//int flag2 = requestdao.deleteRequest(stud_id, book_id);
+		if(flag == 1 ) {
 			return true;
 		}
 		else {

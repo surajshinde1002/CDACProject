@@ -13,9 +13,6 @@ public class StudentDTO {
 		super();
 	}
 
-
-	
-
 	public StudentDTO(int id, String first_name, String last_name, String email, String password, String mobile) {
 		super();
 		this.id = id;
@@ -68,9 +65,6 @@ public class StudentDTO {
 		this.email = email;
 	}
 	
-	
-	
-
 	public String getPassword() {
 		return password;
 	}
@@ -89,9 +83,6 @@ public class StudentDTO {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
-
-
 
 	@Override
 	public String toString() {

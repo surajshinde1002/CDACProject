@@ -117,16 +117,5 @@ public class IssuedDTO {
 				+ book_pdf + ", start_date=" + start_date + ", end_date=" + end_date + ", book_image=" + book_image
 				+ "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

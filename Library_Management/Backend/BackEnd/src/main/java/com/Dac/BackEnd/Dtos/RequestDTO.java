@@ -9,14 +9,8 @@ public class RequestDTO {
 	
 	public RequestDTO() {
 		super();
-		// TODO Auto-generated constructor stub
+	
 	}
-
-
-	
-	
-	
-
 
 	public RequestDTO(int id, int stud_id, int book_id) {
 		super();
@@ -24,11 +18,6 @@ public class RequestDTO {
 		this.stud_id = stud_id;
 		this.book_id = book_id;
 	}
-
-
-
-
-
 
 
 	public RequestDTO(int stud_id, int book_id) {
@@ -67,12 +56,6 @@ public class RequestDTO {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
-
-
-
-
-
-
 
 	@Override
 	public String toString() {

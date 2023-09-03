@@ -14,10 +14,10 @@ export default function AIssuedBook() {
 
   const [issuedBooks, setIssuedBooks] = useState([])
 
-  const searchIssuedBooks = () => {
+  const searchIssuedBooks = async () => {
     const urlNode = `${URL}/admin/allIssuedBooks`
     const urlSpring = `${SPRING_URL}/admin/allIssuedBooks`
-    axios.get(urlSpring).then((response) => { 
+    await axios.get(urlSpring).then((response) => { 
       const result = response.data
       console.log("data is : "+result['data']);
       if (result['status'] === 'success') {
@@ -39,7 +39,7 @@ export default function AIssuedBook() {
     axios.delete(urlSpring).then((response) => {
       const result = response.data
         if (result['status'] == 'success') {
-          toast.success('book successfully retrieve!!!')
+          toast.success('book successfully retrieved!!!')
           searchIssuedBooks()
         } else {
           toast.error(result['error'])
